@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEEDOR Jobs</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Custom styles */
+    .brand {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Dancing Script', cursive;
+      color: #4caf50;
+    }
+    .hero {
+      background: linear-gradient(45deg, #4caf50, #00bcd4);
+      color: white;
+    }
+    .btn-primary {
+      background-color: #4caf50;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #388e3c;
+    }
+    .job-card:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+    /* Dropdown animation */
+    #menu {
+      transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    #menu.open {
+      max-height: 500px; /* Adjust as necessary for content height */
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="brand">CEEDOR</h1>
+      <button id="menu-toggle" class="block focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="menu" class="hidden md:block bg-gray-100 px-4 py-3">
+      <a href="/storage/emulated/0/CDOR/cdor-login-page.html" class="block text-gray-800 hover:text-green-500 py-2">Login</a>
+      <a href="#jobs" class="block text-gray-800 hover:text-green-500 py-2">Jobs</a>
+      <a href="#post-job" class="block text-gray-800 hover:text-green-500 py-2">Post a Job</a>
+      <a href="/storage/emulated/0/CDOR/cdor-signup-page.html" class="block text-gray-800 hover:text-green-500 py-2">Sign Up</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero py-16 text-center">
+    <div class="container mx-auto">
+      <h1 class="text-5xl font-bold">Find Your Dream Job</h1>
+      <p class="text-xl mt-4">Connecting Opportunities, Simplifying Lives.</p>
+      <div class="mt-6">
+        <button data-action="redirect" class="btn-primary px-6 py-3 rounded-full shadow-lg">Browse Jobs</button>
+        <button data-action="redirect" class="btn-primary px-6 py-3 rounded-full shadow-lg ml-4">Post a Job</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job and Post Job Section -->
+  <section id="job-post-section" class="py-16">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Available Jobs -->
+      <div id="jobs">
+        <h2 class="text-3xl font-bold mb-6">Available Jobs</h2>
+        <div class="grid grid-cols-1 gap-6">
+          <!-- Job Card -->
+          <div class="job-card bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold">Frontend Developer</h3>
+            <p class="text-gray-600">Remote | Full-time</p>
+            <p class="text-gray-800 mt-4">We are looking for a creative Frontend Developer with experience in React.js.</p>
+            <button data-action="redirect" class="btn-primary mt-6 block text-center px-4 py-2 rounded-md">Apply Now</button>
+          </div>
+          <!-- Add more Job Cards here -->
+        </div>
+      </div>
+
+      <!-- Post a Job -->
+      <div id="post-job">
+        <h2 class="text-3xl font-bold mb-6">Post a Job</h2>
+        <form id="job-form" class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="mb-4">
+            <label for="job-title" class="block text-gray-700 font-bold mb-2">Job Title</label>
+            <input type="text" id="job-title" class="w-full px-4 py-2 border rounded-md" placeholder="e.g., Full-Stack Developer">
+          </div>
+          <div class="mb-4">
+            <label for="job-location" class="block text-gray-700 font-bold mb-2">Location</label>
+            <input type="text" id="job-location" class="w-full px-4 py-2 border rounded-md" placeholder="e.g., Remote">
+          </div>
+          <div class="mb-4">
+            <label for="job-description" class="block text-gray-700 font-bold mb-2">Description</label>
+            <textarea id="job-description" class="w-full px-4 py-2 border rounded-md" placeholder="Brief description of the job" rows="5"></textarea>
+          </div>
+          <button data-action="redirect" class="btn-primary w-full py-3 rounded-md">Post Job</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>&copy; 2024 CEEDOR Jobs. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle for the dropdown menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('open');
+    });
+
+    // Placeholder for checking if a user is signed up
+    let isSignedUp = false;
+
+    // Redirect logic
+    document.querySelectorAll('[data-action="redirect"]').forEach(button => {
+      button.addEventListener('click', () => {
+        if (!isSignedUp) {
+          alert('Please sign up to proceed.');
+          window.location.href = '#signup';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

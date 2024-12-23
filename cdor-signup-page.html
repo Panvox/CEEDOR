@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - CEEDOR</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .brand {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Dancing Script', cursive;
+      color: #4caf50;
+    }
+    .btn-primary {
+      background-color: #4caf50;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="brand">CEEDOR</h1>
+      <a href="index.html" class="text-gray-800 hover:text-green-500">Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Sign-Up Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Create Your Account</h2>
+        <form action="/storage/emulated/0/CDOR/register.php" method="POST" id="signup-form">
+          <div class="mb-4">
+            <label for="fullname" class="block text-gray-700 font-bold mb-2">Full Name</label>
+            <input type="text" name="fullname" id="fullname" class="w-full px-4 py-2 border rounded-md" placeholder="Enter your full name" required>
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email Address</label>
+            <input type="email" name="email" id="email" class="w-full px-4 py-2 border rounded-md" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-4">
+            <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+            <input type="password" name="password" id="password" class="w-full px-4 py-2 border rounded-md" placeholder="Enter a strong password" required>
+          </div>
+          <div class="mb-4">
+            <label for="confirm-password" class="block text-gray-700 font-bold mb-2">Confirm Password</label>
+            <input type="password" name="confirm_password" id="confirm-password" class="w-full px-4 py-2 border rounded-md" placeholder="Re-enter your password" required>
+          </div>
+          <button type="submit" class="btn-primary w-full py-3 rounded-md mt-6">Sign Up</button>
+        </form>
+        <p class="text-center text-gray-700 mt-6">
+          Already have an account? <a href="login.html" class="text-green-500 font-bold">Log In</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>&copy; 2024 CEEDOR Jobs. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

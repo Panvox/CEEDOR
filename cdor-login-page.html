@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - CEEDOR</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .brand {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Dancing Script', cursive;
+      color: #4caf50;
+    }
+    .btn-primary {
+      background-color: #4caf50;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="brand">CEEDOR</h1>
+      <a href="index.html" class="text-gray-800 hover:text-green-500">Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Login Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Welcome Back</h2>
+        <p class="text-center text-gray-600 mb-8">Login to your CEEDOR account</p>
+        <form id="login-form" action="login.php" method="POST">
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email Address</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-4">
+            <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+            <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-md" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn-primary w-full py-3 rounded-md mt-6">Login</button>
+        </form>
+        <p class="text-center text-gray-700 mt-6">
+          Don't have an account? <a href="signup.html" class="text-green-500 font-bold">Sign Up</a>
+        </p>
+        <p class="text-center text-gray-700 mt-3">
+          Forgot your password? <a href="reset_password.html" class="text-green-500 font-bold">Reset Here</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>&copy; 2024 CEEDOR Jobs. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Placeholder login functionality
+    const loginForm = document.getElementById('login-form');
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Logging in... Redirecting to dashboard!');
+      window.location.href = "dashboard.html"; // Adjust the redirect URL as needed
+    });
+  </script>
+</body>
+</html>
